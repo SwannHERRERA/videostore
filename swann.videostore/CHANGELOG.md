@@ -20,3 +20,7 @@ This projet respect [Semantic Versioning](https://semver.org/) and the [recomman
 ## [1.2.0] - 2020-12-26
 - git flow initialization
 - reset maven project
+- add Test decorator
+- change class property operator
+- Move calcul for each line into dedicated function
+- create enum movie price (not implemented)
