@@ -16,3 +16,7 @@ This projet respect [Semantic Versioning](https://semver.org/) and the [recomman
 - Formating code
 - reset to original tag
 - create maven project based on quickstart
+
+## [1.2.0] - 2020-12-26
+- git flow initialization
+- reset maven project

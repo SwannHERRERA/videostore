@@ -1,3 +1,4 @@
+package esgi.kata.videostore;
 
 public class Rental {
   private Movie movie;
@@ -8,15 +9,11 @@ public class Rental {
     this.daysRented = daysRented;
   }
 
-  public String getTitle() {
-    return movie.getTitle();
+  public int getDaysRented() {
+    return daysRented;
   }
 
-  public double determineAmount() {
-    return movie.determineAmount(daysRented);
-  }
-
-  public int determineFrequentRenterPoints() {
-    return movie.determineFrequentRenterPoints(daysRented);
+  public Movie getMovie() {
+    return movie;
   }
 }

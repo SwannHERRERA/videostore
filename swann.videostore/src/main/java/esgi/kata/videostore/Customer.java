@@ -1,9 +1,12 @@
+package esgi.kata.videostore;
 
-// This file is the original program.  It has been left here so you can compare it with the refactored version.
 import java.util.Vector;
 import java.util.Enumeration;
 
 public class Customer {
+	private String name;
+	private Vector rentals = new Vector();
+
 	public Customer(String name) {
 		this.name = name;
 	}
@@ -58,7 +61,4 @@ public class Customer {
 
 		return result;
 	}
-
-	private String name;
-	private Vector rentals = new Vector();
 }
