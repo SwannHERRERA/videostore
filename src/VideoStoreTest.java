@@ -47,6 +47,7 @@ public class VideoStoreTest extends TestCase {
     assertAmountAndPointsForReport(1.5, 1);
   }
 
+
   public void testMultipleRegularStatement() {
     statement.addRental(new Rental(regular1, 1));
     statement.addRental(new Rental(regular2, 2));
@@ -60,8 +61,13 @@ public class VideoStoreTest extends TestCase {
     statement.addRental(new Rental(regular2, 2));
     statement.addRental(new Rental(regular3, 3));
 
-    assertEquals("Rental Record for Customer Name\n" + "\tRegular 1\t2.0\n" + "\tRegular 2\t2.0\n"
-        + "\tRegular 3\t3.5\n" + "You owed 7.5\n" + "You earned 3 frequent renter points\n",
-        statement.makeRentalStatement());
+    assertEquals(
+      "Rental Record for Customer Name\n" +
+        "\tRegular 1\t2.0\n" +
+        "\tRegular 2\t2.0\n" +
+        "\tRegular 3\t3.5\n" +
+        "You owed 7.5\n" +
+        "You earned 3 frequent renter points\n",
+      statement.makeRentalStatement());
   }
 }
