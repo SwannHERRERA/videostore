@@ -1,18 +1,18 @@
 package esgi.kata.videostore;
 
-import java.util.Vector;
-import java.util.Enumeration;
+import java.util.ArrayList;
 
 public class Customer {
 	private String name;
-	private Vector rentals = new Vector();
+	private ArrayList<Rental> rentals = new ArrayList<Rental>();
+	private double totalAmount = 0;
 
 	public Customer(String name) {
 		this.name = name;
 	}
 
 	public void addRental(Rental rental) {
-		rentals.addElement(rental);
+		rentals.add(rental);
 	}
 
 	public String getName() {
@@ -20,32 +20,45 @@ public class Customer {
 	}
 
 	public String statement() {
-		double totalAmount = 0;
-		int frequentRenterPoints = 0;
-		Enumeration rentals = this.rentals.elements();
-		// TODO move display to dedicated place
+		int fidelityPoints = getFidelityPoints();
+		calculateTotalAmount();
+
 		String result = "Rental Record for " + getName() + "\n";
-
-		while (rentals.hasMoreElements()) {
-
-			Rental each = (Rental) rentals.nextElement();
-
-			double thisAmount = calculateAmount(each);
-
-			frequentRenterPoints++;
-
-			if (each.getMovie().getPriceCode() == Movie.NEW_RELEASE && each.getDaysRented() > 1)
-				frequentRenterPoints++;
-
-			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
-			totalAmount += thisAmount;
-
-		}
-
+		result += getSummaryBySale();
 		result += "You owed " + String.valueOf(totalAmount) + "\n";
-		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
+		result += "You earned " + String.valueOf(fidelityPoints) + " frequent renter points\n";
 
 		return result;
+	}
+
+	private int getFidelityPoints() {
+		int count = rentals.size();
+		// count += rentals.stream().filter(rental -> isFirstDay(rental)).count();
+		for (Rental rental : rentals) {
+			if (isFirstDay(rental)) {
+				count += 1;
+			}
+		}
+		return count;
+	}
+
+	private String getSummaryBySale() {
+		String result = "";
+		for (Rental rental : rentals) {
+			double thisAmount = calculateAmount(rental);
+			result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+		}
+		return result;
+	}
+
+	private Boolean isFirstDay(Rental rental) {
+		return rental.getMovie().getPriceCode() == Movie.NEW_RELEASE && rental.getDaysRented() > 1;
+	}
+
+	private void calculateTotalAmount() {
+		for (Rental rental : rentals) {
+			totalAmount += calculateAmount(rental);
+		}
 	}
 
 	private double calculateAmount(Rental rental) {
