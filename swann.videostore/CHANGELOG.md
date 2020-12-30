@@ -28,3 +28,4 @@ This projet respect [Semantic Versioning](https://semver.org/) and the [recomman
 ## [1.2.0] - 2020-12-29
 ### Changed
 - refactor class customer and add a Main class
+- Start to use enum insted of static final for moviePrice

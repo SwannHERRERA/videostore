@@ -16,4 +16,8 @@ public class Rental {
   public Movie getMovie() {
     return movie;
   }
+
+  public MoviePriceCode getMoviePriceCode() {
+    return movie.getMoviePriceCode();
+  }
 }

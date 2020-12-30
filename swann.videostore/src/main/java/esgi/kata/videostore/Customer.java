@@ -61,21 +61,23 @@ public class Customer {
 		}
 	}
 
+	// TODO il faut qu'on fasse emerger une uniformité entre amount et price
 	private double calculateAmount(Rental rental) {
 		double amount = 0;
-		switch (rental.getMovie().getPriceCode()) {
-			case Movie.REGULAR:
+		int daysRented = rental.getDaysRented();
+		switch (rental.getMoviePriceCode()) {
+			case REGULAR:// une fonction par cas ?
 				amount += 2;
-				if (rental.getDaysRented() > 2)
-					amount += (rental.getDaysRented() - 2) * 1.5;
+				if (daysRented > 2)
+					amount += (daysRented - 2) * 1.5;// une fonction qui fait ce calcule ?
 				break;
-			case Movie.NEW_RELEASE:
-				amount += rental.getDaysRented() * 3;
+			case NEW_RELEASE:
+				amount += daysRented * 3;
 				break;
-			case Movie.CHILDRENS:
+			case CHILDRENS:
 				amount += 1.5;
-				if (rental.getDaysRented() > 3)
-					amount += (rental.getDaysRented() - 3) * 1.5;
+				if (daysRented > 3)
+					amount += (daysRented - 3) * 1.5;
 				break;
 		}
 		return amount;
