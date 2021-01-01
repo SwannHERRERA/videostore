@@ -6,4 +6,8 @@ public class MovieNewRelease extends Movie {
     super(title);
   }
 
+  public double calculateAmount(int daysRented) {
+    double coeff = 3;
+    return daysRented * coeff;
+  }
 }

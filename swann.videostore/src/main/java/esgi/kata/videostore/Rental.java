@@ -17,7 +17,17 @@ public class Rental {
     return movie;
   }
 
-  public MoviePriceCode getMoviePriceCode() {
-    return movie.getMoviePriceCode();
+  public Boolean isFirstDay() {
+    System.out.println(movie.getClass());
+
+    return movie instanceof MovieNewRelease && getDaysRented() > 1;
+  }
+
+  public double calculateAmount() {
+    return movie.calculateAmount(daysRented);
+  }
+
+  public String getMovieTitle() {
+    return movie.getTitle();
   }
 }
