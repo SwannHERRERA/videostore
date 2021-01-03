@@ -1,3 +1,4 @@
+package esgi.kata.videostore;
 
 public abstract class Movie {
 	private String title;
@@ -10,7 +11,6 @@ public abstract class Movie {
 		return title;
 	}
 
-	public abstract double determineAmount(int daysRented);
+	public abstract double calculateAmount(int daysRented);
 
-	public abstract int determineFrequentRenterPoints(int daysRented);
 }
