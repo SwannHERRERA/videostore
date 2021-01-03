@@ -20,3 +20,24 @@ This projet respect [Semantic Versioning](https://semver.org/) and the [recomman
 ## [1.2.0] - 2020-12-26
 - git flow initialization
 - reset maven project
+- add Test decorator
+- change class property operator
+- Move calcul for each line into dedicated function
+- create enum movie price (not implemented)
+
+## [1.2.0] - 2020-12-29
+### Changed
+- refactor class customer and add a Main class
+- Start to use enum insted of static final for moviePrice
+
+
+## [2.0.0] - 2021-01-03
+### Added
+- Add Rental list
+### Changed
+- Refactor movie thinking to use polymorphisme
+- changer testVideoStore test organisation
+
+## [2.1.0] - 2021-01-03
+### Added
+- Add tests

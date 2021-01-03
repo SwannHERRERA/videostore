@@ -16,4 +16,16 @@ public class Rental {
   public Movie getMovie() {
     return movie;
   }
+
+  public Boolean isFirstDay() {
+    return movie instanceof MovieNewRelease && getDaysRented() > 1;
+  }
+
+  public double calculateAmount() {
+    return movie.calculateAmount(daysRented);
+  }
+
+  public String getMovieTitle() {
+    return movie.getTitle();
+  }
 }
