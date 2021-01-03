@@ -29,3 +29,11 @@ This projet respect [Semantic Versioning](https://semver.org/) and the [recomman
 ### Changed
 - refactor class customer and add a Main class
 - Start to use enum insted of static final for moviePrice
+
+
+## [2.0.0] - 2021-01-03
+### Added
+- Add Rental list
+### Changed
+- Refactor movie thinking to use polymorphisme
+- changer testVideoStore test organisation

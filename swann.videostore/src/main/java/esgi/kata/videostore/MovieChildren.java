@@ -14,7 +14,7 @@ public class MovieChildren extends Movie {
     if (daysRented <= 3) {
       return defaultValue;
     }
-    return defaultValue + (daySubstract - 3) * coeff;
+    return defaultValue + (daysRented - daySubstract) * coeff;
   }
 
 }

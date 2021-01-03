@@ -18,8 +18,6 @@ public class Rental {
   }
 
   public Boolean isFirstDay() {
-    System.out.println(movie.getClass());
-
     return movie instanceof MovieNewRelease && getDaysRented() > 1;
   }
 
