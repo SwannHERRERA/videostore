@@ -37,3 +37,7 @@ This projet respect [Semantic Versioning](https://semver.org/) and the [recomman
 ### Changed
 - Refactor movie thinking to use polymorphisme
 - changer testVideoStore test organisation
+
+## [2.1.0] - 2021-01-03
+### Added
+- Add tests
