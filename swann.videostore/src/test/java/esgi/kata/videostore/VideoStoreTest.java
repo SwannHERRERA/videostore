@@ -30,8 +30,6 @@ public class VideoStoreTest extends TestCase {
     assertEquals("Rental Record for Fred\n\tThe Cell\t9.0\nYou owed 9.0\nYou earned 2 frequent renter points\n",
         customer.statement());
   }
-  // FAIRE des TEST d'intégrations avec le text mais sinon tester les autre
-  // fonction avec le type number
 
   @Test
   public void testDualNewReleaseStatement() {
