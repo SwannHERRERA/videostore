@@ -3,3 +3,53 @@ videostore
 
 The videostore example from Episode 3 of cleancoders.com.
 Based upon, but not identical to, the first chapter of Martin Fowler's classic book: Refactoring.
+
+---
+Refacto
+
+
+### Code Smell
+- Indentation
+- Test qui ne couvre pas tous las cas
+- Mélange entre l'affichage et la logique
+- fonction trop complexe (trop de niveau d'intentation)
+- fonction trop longue
+- des variables en static qui determine le type d'un film
+- Les tests qui sont "des test d'intégration" qui test le fonctionnement global de l'app sans tester que les fonction joue bien leurs roles de plus les tests sont impcomplet il est possible de les validés en faisant le mauvais calcule
+
+### Refactoring action
+
+- Ajout d'une structure au projet (changelog, contributing)
+- Installation de Maven (a partir de default quickstart)
+- Initialisation du projet avec gitFlow ![gitflow Atlasian guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+- Modification des test Ajout de decorateur
+- Renommage et extraction de code dans des fonctions séparé
+- Création d'une énumération pour le type du film (qui sera remplacé après)
+- Création d'un objet list de rental pour pouvoir recalculer sur la modification et puis parce que certaine fonction que j'avais fait emergé n'avais pas de sens dans la class customer (Design Patern Utilisé: Proxy)
+- Changement du fonctionnement de movie en class abstraite implémenté par 3 sous class et supréssion de l'énumération, utilisation du polymorphisme (Design Patern Utilisé: Factory)
+- Ajout de test pour "chaque class utile"
+
+### Bénéfice
+
+- Plus facilement compréhensible
+- Plus facilement modifiable
+- Modifiable sans risqué de cassé (grace au test)
+- plus simple a debugger
+
+## Détail du processus de refactoring
+
+Après avoir lu le sujet j'ai tout de suite voulu aller lire le code.
+
+La première chose que j'ai faite, c'est de reformatter le code j'ai juste demandé à mon IDE de le faire, mais c'est la première action qui a été mise en place avant même de lire le code.
+
+Ensuite, j'ai déplacé les propriétés vers le haut des class, c'est une préférence personnelle.
+
+Après avoir bien compris le code j'ai "repris le projet" j'ai créé un projet maven dans lequel j'ai reporté le code d'UncleBob.
+ 
+J'ai ajouté des décorateurs pour les tests, sinon je n'arrivais pas à les lancer. J'ai créé des fichiers changelog et contributing premièrement pour pouvoir être plus à l'aise quand je rédigerais ceci, et aussi pour que les personnes qui reprennent le projet soient plus à l'aise en sachant comme faire et qu'est-ce qui a été fait.
+
+Ensuite, j'ai analysé ce que je devais changer. Pour moi il était évidant que le type de Movie devait être traité autrement j'ai d'abord pensé à une énumération peut être à cause du code déjà existant j'ai ensuite changé d'avis quand j'ai essayer de travailler sur les Movies.
+
+En tout premier lieu, mon but était de découper la complexité dans des fonctions. (pour l'instant ce n'est pas grave si ces fonctions ne sont pas à la bonne place ou pas on pourra faire émergé des classes plus tard)
+
+J'ai aussi encapsulé la liste de Rental pour pouvoir faire des actions spécifique dessus tel que calculé les points de fidélité et le MontantTotal au moment de l'ajout d'un rental dans la liste.
