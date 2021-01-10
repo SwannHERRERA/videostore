@@ -53,3 +53,8 @@ Ensuite, j'ai analysé ce que je devais changer. Pour moi il était évidant que
 En tout premier lieu, mon but était de découper la complexité dans des fonctions. (pour l'instant ce n'est pas grave si ces fonctions ne sont pas à la bonne place ou pas on pourra faire émergé des classes plus tard)
 
 J'ai aussi encapsulé la liste de Rental pour pouvoir faire des actions spécifique dessus tel que calculé les points de fidélité et le MontantTotal au moment de l'ajout d'un rental dans la liste.
+
+### Mes intérogations
+
+- J'ai créé une class abstraite pour les movies l'option de l'interface m'a paru moins pertinente.
+- Il y a eu certains moments où j'ai du changer beaucoup de code et que ça n'a pas marcher pendant longtemps ce qui m'a mis mal à l'aise Après réflexion j'aurai presque du faire du TDD pour ce projet. La question de, est-ce que le code fonctionne comme il faut m'a beaucoup déranger.
